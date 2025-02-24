@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <title>Пример 17 - Дерево списков</title>
 </head>
 
@@ -28,11 +28,11 @@
       }
     }
 
-    function createUl(obj) {
-      if(!Object.keys(obj).length) {
-        return;
-      } else {
-        let ul = document.createElement("ul");
+    for(let category in data) {
+      console.log(category);
+      let subCategory = data[category];
+      for(let item in subCategory) {
+        console.log(item, subCategory[item]);
       }
     }
 

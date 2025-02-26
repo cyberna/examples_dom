@@ -29,27 +29,31 @@
     }
 
 
-    function createUl(obj) {
-      if(!Object.keys(obj).length) return
-      let ul = document.createElement('ul');
-      for(let key in obj) {
-        let li = document.createElement('li');
-        if(!isNaN(obj[key]))
+    function createUl(obj) { // Создаем функцию для вывода объектов
+      if(!Object.keys(obj).length) return // Проверяем НЕ пустой ли объект, если да завершается выполнение
+      let ul = document.createElement('ul'); // Создаем для существующих
+      for(let key in obj) { // Цикл for..in проходит по всем ключам и свойтвам объекта
+        let li = document.createElement('li'); // Для каждого ключа создается новый элемент <li>
+        if(!isNaN(obj[key])) // Если значение является числом, то текст элемента будет раве ключу и значению.
           li.textContent = key + obj[key];
         else
-          li.textContent = key;
-        let childrenUl = createUl(obj[key]);
-        if(childrenUl) {
-          li.append(childrenUl);
+          li.textContent = key; // Если не является числом то будет равен только ключу. Например: красные.
+        let childrenUl = createUl(obj[key]); // Рекурсивный вызов функции createUl для вложенного объекта
+        if(childrenUl) { // Если рекурсивный вызов вернул список ul, то
+          li.append(childrenUl); // он добавляется как дочерний элемент к текущему элементу списка li.
         }
-        ul.append(li);
+        ul.append(li); // Каждый созданный элемент списка li добавляется в список ul.
       }
-      return ul;
+      return ul; // Функция возвращает созданный список ul.
     }
-    function createTree(container, obj) {
-      document.querySelector(container).append(createUl(obj))
+    function createTree(container, obj) { // container - куда будет вставленно дерево и obj объкт для дерева.
+      document.querySelector(container).append(createUl(obj)) // Находит элемент на странице
     }
     createTree('body', data);
+
+    // КВАДРАТНЫЕ СКОБКИ ИСПОЛЬЗУЮТСЯ ДЛЯ ДОСТУПА К СВОЙСТВАМ ОБЪЕКТА. Например obj[key], позволяет
+    // получить значение свойства объека по его ключу.
+
   </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 
 
     function createUl(obj) { // Создаем функцию для вывода объектов
-      if(!Object.keys(obj).length) return // Проверяем НЕ пустой ли объект, если да завершается выполнение
+      if(!Object.keys(obj).length) return // Проверяем НЕ пустой ли объект, если да, завершается выполнение
       let ul = document.createElement('ul'); // Создаем для существующих
       for(let key in obj) { // Цикл for..in проходит по всем ключам и свойтвам объекта
         let li = document.createElement('li'); // Для каждого ключа создается новый элемент <li>

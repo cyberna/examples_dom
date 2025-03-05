@@ -29,11 +29,13 @@
     }
 
     function createUl(obj) {
-      if(Object.keys(obj[key]) == 0) return
+      if(Object.keys(obj).length !== 0 || Object.keys(obj).length !== null) return
       let ul = document.createElement('ul');
-      
+      for(let key in obj) {
+        let li = document.createElement('li');
     }
 
   </script>
+
 </body>
 </html>
